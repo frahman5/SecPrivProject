@@ -55,9 +55,9 @@ if __name__ == '__main__':
 	# Open again to plot
 	f = wave.open(filtered_file, 'r')
 	fps = f.getframerate()
-	n = int(f.getnframes()/fps)
-	data = f.readframes(n*fps)  
-	data_arr = np.fromstring(data, dtype=np.int16)
+	n = int(f.getnframes()/fps) # length of sound in seconds
+	data = f.readframes(n*fps)  # read all the frames of the sound
+	data_arr = np.fromstring(data, dtype=np.int16)	
 	all_left, all_right = data_arr[0::2], data_arr[1::2]
 
 	# FFT
